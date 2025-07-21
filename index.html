@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blitzschutz-Wartungsprotokoll</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Blitzschutz-Wartungsprotokoll</h1>
+    <form id="protocolForm">
+        <fieldset>
+            <legend>1. Allgemeine Angaben</legend>
+            <label>Gebäude: <input type="text" name="building"></label><br>
+            <label>Standort: <input type="text" name="location"></label><br>
+            <label>Datum der Wartung: <input type="date" name="date"></label><br>
+            <label>Ausgeführt von: <input type="text" name="executed_by"></label><br>
+            <label>Ansprechpartner: <input type="text" name="contact"></label><br>
+            <label>Art der Anlage:<br>
+                <input type="checkbox" name="anlage" value="aeusserer"> Äußerer Blitzschutz<br>
+                <input type="checkbox" name="anlage" value="innerer"> Innerer Blitzschutz<br>
+                <input type="checkbox" name="anlage" value="erdung"> Erdungsanlage
+            </label><br>
+            <label>Zustand bei Ankunft:
+                <input type="radio" name="arrival_status" value="in_ordnung"> In Ordnung
+                <input type="radio" name="arrival_status" value="maengel"> Mängel festgestellt
+            </label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>2. Prüfung der Komponenten</legend>
+            <table>
+                <tr><th>Komponente</th><th>Zustand</th><th>Maßnahme</th><th>Bemerkung</th></tr>
+                <tr><td>Fangeinrichtung</td>
+                    <td><input type="radio" name="zustand1" value="ok"> OK <input type="radio" name="zustand1" value="mangel"> Mangel</td>
+                    <td><input type="radio" name="massnahme1" value="ja"> Ja <input type="radio" name="massnahme1" value="nein"> Nein</td>
+                    <td><input type="text" name="bemerkung1"></td>
+                </tr>
+                <!-- Weitere Zeilen folgen analog -->
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>3. Messungen</legend>
+            <table>
+                <tr><th>Messstelle</th><th>Messwert (Ohm)</th><th>Grenzwert überschritten?</th><th>Bemerkung</th></tr>
+                <!-- Beispielhafte Zeile -->
+                <tr>
+                    <td><input type="text" name="messstelle1"></td>
+                    <td><input type="number" name="messwert1" step="0.01"></td>
+                    <td><input type="checkbox" name="grenzwert1" value="true"></td>
+                    <td><input type="text" name="bemerkung_m1"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>4. Mängelprotokoll</legend>
+            <input type="radio" name="maengel" value="keine"> Keine Mängel festgestellt<br>
+            <input type="radio" name="maengel" value="vorhanden"> Folgende Mängel festgestellt:<br>
+            <textarea name="maengel_text"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>5. Zusammenfassung</legend>
+            <label>Gesamtzustand der Anlage:
+                <input type="radio" name="gesamt" value="ordnung"> In Ordnung
+                <input type="radio" name="gesamt" value="maengel"> Mängelhaft
+            </label><br>
+            <label>Wartung durchgeführt am: <input type="date" name="durchgefuehrt"></label><br>
+            <label>Durchgeführt von: <input type="text" name="durchgefuehrt_von"></label><br>
+            <label>Nächste empfohlene Prüfung: <input type="text" name="naechste_pruefung"></label><br>
+        </fieldset>
+
+        <button type="submit">Speichern / Drucken</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
